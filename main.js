@@ -18,6 +18,10 @@ const getTree = async () => {
 };
 
 const findLabelById = async (idForSearch) => {
+    if(idForSearch <= 0 || idForSearch > 9) {
+        console.log('White number from 1 to 9 only');
+        return null;
+    }
     let labelForSearch = '';
     const obj = await getTree();
     
@@ -38,8 +42,9 @@ const findLabelById = async (idForSearch) => {
 };
 
 const getLabel = (id) => {
-    findLabelById(id).then(res => {
-        console.log(`Label with id ${res[0]} is ${res[1]}`)
-    })
+    findLabelById(id)
+        .then(res => {
+            console.log(`Label with id ${res[0]} is ${res[1]}`)
+        })
 }
 
