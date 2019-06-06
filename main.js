@@ -34,9 +34,12 @@ const findLabelById = async (idForSearch) => {
     }
 
     traverseOfTree(obj);
-    return [idForSearch, labelForSearch];
+    return await [idForSearch, labelForSearch];
 };
 
-findLabelById(5).then(res => {
-    console.log(`Label with id ${res[0]} is ${res[1]}`)
-})
+const getLabel = (id) => {
+    findLabelById(id).then(res => {
+        console.log(`Label with id ${res[0]} is ${res[1]}`)
+    })
+}
+
